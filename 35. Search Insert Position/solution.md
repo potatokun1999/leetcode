@@ -1,3 +1,4 @@
+# Step 2
 
 # Intuition
 <!-- Describe your first thoughts on how to solve this problem. -->
@@ -63,4 +64,33 @@ class Solution:
 
         else:
             return r + 1
+```
+
+# Step 3
+
+## Approach
+
+半開区間にコードを直す
+
+## Code
+```python3 []
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums)
+
+        while (l < r):
+            mid = (l + r) // 2
+
+            if nums[mid] < target:
+                l = mid + 1
+
+            ```
+            nums[mid] == target も含む。同じ値が連続する場合、先頭を挿入位置とするため。
+            nums = [3, 3], t = 3, l, r = 0, 1 のとき [l, r) = [0, 0(=mid))にする。
+            nums = [3], [l, r) = [0, 0(=mid)) で nums[-1] = -inf < target かつ nums[0] >= target のため、index = 0 が挿入位置となる。
+            ```
+            else:
+                r = mid
+        
+        return l 
 ```
