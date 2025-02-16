@@ -66,13 +66,22 @@ class Solution:
             return r + 1
 ```
 
+---
 # Step 3
 
-## Approach
+# Approach
 
-半開区間にコードを直す
+半開区間で書いてみる。
 
-## Code
+## nums[mid] == target の場合分け
+
+```
+nums[mid] == target は else に含む。同じ値が連続する場合、先頭を挿入位置とするためである。
+nums = [3, 3], t = 3, [l, r) = [0, 1) のとき [l, r) = [0, 0(=mid))にする。
+nums = [3], [l, r) = [0, 0(=mid)) で nums[-1] = -inf < target かつ nums[0] >= target のため、index = 0 が挿入位置となる。
+```
+
+# Code
 ```python3 []
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
@@ -84,11 +93,6 @@ class Solution:
             if nums[mid] < target:
                 l = mid + 1
 
-            ```
-            nums[mid] == target も含む。同じ値が連続する場合、先頭を挿入位置とするため。
-            nums = [3, 3], t = 3, l, r = 0, 1 のとき [l, r) = [0, 0(=mid))にする。
-            nums = [3], [l, r) = [0, 0(=mid)) で nums[-1] = -inf < target かつ nums[0] >= target のため、index = 0 が挿入位置となる。
-            ```
             else:
                 r = mid
         
