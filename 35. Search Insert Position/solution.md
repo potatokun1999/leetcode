@@ -86,11 +86,11 @@ class Solution:
             if nums[mid] < target:
                 l = mid + 1
 
-            ```
-            target == nums[mid] の場合は else に含めてもいい。[l, r=mid) で 最終的には [mid, mid) となり、return l (=mid) を返す
-            ```
-            else:
+            elif nums[mid] > target:
                 r = mid
+
+            else:
+                return mid
         
         return l 
 ```
