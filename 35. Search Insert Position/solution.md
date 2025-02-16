@@ -73,13 +73,6 @@ class Solution:
 
 半開区間で書いてみる。
 
-## nums[mid] == target の場合分け
-
-```
-nums[mid] == target は else に含む。同じ値が連続する場合、先頭を挿入位置とするためである。
-nums = [3, 3], t = 3, [l, r) = [0, 1) のとき [l, r) = [0, 0(=mid))にする。
-nums = [3], [l, r) = [0, 0(=mid)) で nums[-1] = -inf < target かつ nums[0] >= target のため、index = 0 が挿入位置となる。
-```
 
 # Code
 ```python3 []
@@ -93,6 +86,9 @@ class Solution:
             if nums[mid] < target:
                 l = mid + 1
 
+            ```
+            target == nums[mid] の場合は else に含めてもいい。[l, r=mid) で 最終的には [mid, mid) となり、return l (=mid) を返す
+            ```
             else:
                 r = mid
         
