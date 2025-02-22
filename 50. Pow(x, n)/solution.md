@@ -42,10 +42,12 @@ n < 0 で 1 / x^n となるため、再帰関数外で、場合分けして、�
 
 # Complexity
 - Time complexity: O(log n)
+最大深さが log n
 
 <!-- Add your time complexity here, e.g. $$O(n)$$ -->
 
-- Space complexity: O(1)
+- Space complexity: O(log n)
+log n 回、O(1) でメモリを消費する。
 <!-- Add your space complexity here, e.g. $$O(n)$$ -->
 
 # Code
